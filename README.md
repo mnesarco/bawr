@@ -13,7 +13,7 @@ This project is based on a previous project: https://github.com/mnesarco/ff-batc
 - Generate TrueType fonts from svg collections.
 - Generate png textures from svg collections.
 - Embed binaries into c++ sources ready to link.
-- Generate ImGui Font Loaders (c++).
+- Generate ImGui Font Loaders (c++). ([howto](https://github.com/mnesarco/bawr/blob/main/ImGui.md))
 - Generate c++ Atlas Maps.
 - Generate c++ Font constants as Macros and/or as const/constexpr.
 - Apply transformation to svg files during the generation.
@@ -319,6 +319,10 @@ class MyAtlasHeader( CppAtlasHeader ):
 
 
 ```
+
+## How to use with Dear ImGui:
+
+https://github.com/mnesarco/bawr/blob/main/ImGui.md
 
 ## What is in the name
 
