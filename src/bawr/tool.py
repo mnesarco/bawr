@@ -20,7 +20,7 @@
 import argparse
 from bawr import config_parser as cp
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 
 def banner():
     print(r'''

@@ -24,7 +24,7 @@ class CppFontHeader:
 
     # Config
     name = None
-    namespace = 'icons'
+    namespace = None
     constexpr = False
     macros = True
     macro_prefix = 'Icon_'
@@ -44,7 +44,7 @@ class CppFontHeader:
         instance = self.source.instance
         icons = instance.icons
         build_dir = env.BAWR_OUTPUT_DIR
-        namespace = self.namespace
+        namespace = self.namespace or 'icons'
 
         header_file = Path(build_dir, self.name or instance.name + "_codes.hpp")
         self.output = header_file

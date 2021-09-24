@@ -60,7 +60,7 @@ class ImGuiFontLoader:
             f.write(f'#include "{self.header.instance.output.name}"\n\n')
             f.write(f"namespace {namespace} {{\n")
             f.write( " namespace Font {\n")
-            f.write(f"  static const ImWchar ranges[] = {{ {namespace}::Font_StartCode , {namespace}::Font_EndCode, 0 }};\n")
+            f.write(f"  static const ImWchar ranges[] = {{ {self.header.instance.namespace}::Font_StartCode , {self.header.instance.namespace}::Font_EndCode, 0 }};\n")
             f.write( "  inline ImFont* Load(ImGuiIO& io, const float size, ImFontConfig* config) {\n")
             f.write(f"   void* data = const_cast<unsigned int*>({self.header.instance.namespace}::data::DATA);\n")
             f.write( "   if (config) {\n")

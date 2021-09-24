@@ -28,7 +28,7 @@ class CppEmbedded:
 
     # Config
     name = None
-    namespace = 'icons'
+    namespace = None
     source = None
 
     # Generated
@@ -51,7 +51,7 @@ class CppEmbedded:
 
         utils.bin_to_cpp_data(
             self.output_data, 
-            self.namespace, 
+            self.namespace or 'icons', 
             input_bin
         )
 
