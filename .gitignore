@@ -1,0 +1,4 @@
+bawr.egg-info/
+dist/
+__pycache__
+__bawr_cache__
