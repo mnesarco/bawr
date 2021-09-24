@@ -38,7 +38,7 @@ python3 -m pip install --upgrade build
 python3 -m pip install wheel
 
 python3 -m build 
-python3 -m pip install dist/bawr-0.0.1-py3-none-any.whl
+python3 -m pip install dist/bawr-0.0.3-py3-none-any.whl
 
 ```
 
@@ -53,14 +53,14 @@ python3 -m pip install bawr
 
 | Concept                | Description                                                                                           |
 |------------------------|-------------------------------------------------------------------------------------------------------|
-| Svg Icon               | It is just a file in .svg format. Is must be a square.                                                |
+| Svg Icon               | It is just a file in .svg format. It must be a square.                                                |
 | Icon set or Collection | It is a folder with svg icons                                                                         |
 | Configuration file     | It is a python file with all the options to generate your files. By convention it is called config.py |
 
 ## Usage
 
 1. Create a folder
-2. Put a file named config.py (you can copy the one from examples dir)
+2. Put a file named `config.py` (you can copy the one from examples dir https://github.com/mnesarco/bawr/tree/main/examples)
 3. Add folders with svg icons
 4. Adjust the configuration (edit config.py)
 5. Call bawr
@@ -73,7 +73,7 @@ python3 -m bawr.tool
 
 ## Examples
 
-You can use the examples dir as a template for your project:
+You can use the examples dir (https://github.com/mnesarco/bawr/tree/main/examples) as a template for your project:
 
 ```bash
 examples/
