@@ -150,7 +150,7 @@ io.Fonts->AddFontFromFileTTF("/wherever/Arial.ttf", 32);
 
 // Then merge the icons
 ImFontConfig cfg;
-cfg.MergeMode = false;
+cfg.MergeMode = true;
 cfg.PixelSnapH = true;
 icons::Font::Load(ImGui::GetIO(), 32, &cfg);
 
