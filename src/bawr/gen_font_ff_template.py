@@ -137,13 +137,37 @@ ligaChars = [
       (0x7a, 'z'),
 ]
 
+def mapCharToName(c):
+    return {
+        '0': 'zero',
+        '1': 'one',
+        '2': 'two',
+        '3': 'three',
+        '4': 'four',
+        '5': 'five',
+        '6': 'six',
+        '7': 'seven',
+        '8': 'eight',
+        '9': 'nine',
+        '_': 'underscore',
+    }.get(c, c)
+
 for code, name in ligaChars:
     glyph = font.createChar(code, name)
     pen = glyph.glyphPen()
     pen.moveTo(0,0)
+
+lookup_name = '\'liga\' Standard Ligatures in Latin lookup 0'
+subtable_name = lookup_name + ' subtable'
+font.addLookup( lookup_name, "gsub_ligature", [], [ ("liga",[("latn",["dflt"])]) ] )
+font.addLookupSubtable(lookup_name, subtable_name)
+
 for code, name, path, options in select:
     glyph = font.createChar(code, name)
     glyph.importOutlines(path)
+
+    ligature_components = ' '.join( map(mapCharToName, list(name)) )
+    glyph.addPosSub(subtable_name, ligature_components)
     if options:
         lt = parse_transformation(options.get('font_transformation', None)) 
         if lt:
