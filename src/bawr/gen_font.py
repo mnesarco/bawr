@@ -19,6 +19,7 @@
 
 from pathlib import Path
 import os
+from typing import Iterable
 from bawr.glyph import Glyph
 from bawr import utils
 from bawr.tool_fontforge import FontForgeTool
@@ -42,6 +43,7 @@ class Font:
     def build(self, env):
         print("[Font Forge] Start ...")
         code = self.start_code
+        assert isinstance(self.collections, Iterable), f"{self.__class__.__name__}.collections is not Iterable"
         for icon_set_cls in self.collections:
             icon_set = icon_set_cls()
             if icon_set.select:
