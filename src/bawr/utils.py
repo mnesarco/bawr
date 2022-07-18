@@ -21,6 +21,7 @@ import re
 import struct
 import os
 from pathlib import Path
+from collections.abc import Iterable
 
 class StringReplacer:
     '''
@@ -101,3 +102,8 @@ def get_cache_dir(env):
     if not path.exists():
         os.makedirs(path, exist_ok=True)
     return path
+
+def as_iterable(obj):
+    if isinstance(obj, Iterable):
+        return obj
+    return (obj,)

@@ -1,4 +1,5 @@
 bawr.egg-info/
 dist/
+build/
 __pycache__
 __bawr_cache__

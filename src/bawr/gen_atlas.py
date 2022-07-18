@@ -98,7 +98,7 @@ class Atlas:
             return
 
         code = 0
-        for icon_set_cls in self.collections:
+        for icon_set_cls in utils.as_iterable(self.collections):
             icon_set = icon_set_cls()
             if icon_set.select:
                 for file_name, glyph_name in icon_set.select:

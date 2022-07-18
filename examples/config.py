@@ -118,7 +118,7 @@ class MyFont( Font ):
     # First font glyph code [Optional] (default = 0xe000)
     # start_code = 0xe000
 
-    # List ot tuple of the icon sets included in this font [Mandatory]
+    # List or tuple of the icon sets included in this font [Mandatory]
     collections = (BootstrapIcons, MyIcons)
 
     # Global font transformation [Optiona] (See: Font transformations)

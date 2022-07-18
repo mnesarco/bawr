@@ -44,7 +44,8 @@ class CppFontHeader:
         instance = self.source.instance
         icons = instance.icons
         build_dir = env.BAWR_OUTPUT_DIR
-        namespace = self.namespace or 'icons'
+        self.namespace = self.namespace or 'icons'
+        namespace = self.namespace
 
         header_file = Path(build_dir, self.name or instance.name + "_codes.hpp")
         self.output = header_file

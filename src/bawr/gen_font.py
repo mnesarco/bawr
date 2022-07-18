@@ -42,7 +42,7 @@ class Font:
     def build(self, env):
         print("[Font Forge] Start ...")
         code = self.start_code
-        for icon_set_cls in self.collections:
+        for icon_set_cls in utils.as_iterable(self.collections):
             icon_set = icon_set_cls()
             if icon_set.select:
                 for file_name, glyph_name in icon_set.select:
@@ -80,7 +80,7 @@ class Font:
                 out.write("  font_name = '{}'\n".format(self.name))
                 out.write("\n")
 
-                for icon_set_cls in self.collections:
+                for icon_set_cls in utils.as_iterable(self.collections):
                     out.write("{}_opt = {}\n".format(icon_set_cls.__name__, icon_set_cls.options))
                 out.write("\n")
 
