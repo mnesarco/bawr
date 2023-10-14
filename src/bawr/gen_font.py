@@ -95,11 +95,11 @@ class Font:
 
                 out.write("select = [\n")
                 for glyph in self.icons:
-                    out.write("  ({}, '{}', '{}', {}_opt),\n".format(hex(glyph.code), glyph.name, glyph.path.absolute(), glyph.source.__name__))
+                    out.write("  ({}, '{}', r'{}', {}_opt),\n".format(hex(glyph.code), glyph.name, glyph.path.absolute(), glyph.source.__name__))
                 out.write("]\n")
                 out.write("\n")
 
-                out.write("build_dir = '{}'".format(env.BAWR_OUTPUT_DIR.absolute()))
+                out.write("build_dir = r'{}'".format(env.BAWR_OUTPUT_DIR.absolute()))
                 out.write(pos)
 
     def run(self, env):
