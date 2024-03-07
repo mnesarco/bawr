@@ -1,4 +1,5 @@
 # Copyright 2021 Frank David Martinez Muñoz
+# Copyright 2024 Lutz Schönemann
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in 
@@ -29,6 +30,7 @@ class Font:
     copyright = "Copyright 2021 Frank David Martinez M."
     name = "icons"
     family = "icons"
+    version = ''
     start_code = 0xe000
     collections = []
     transformation = []
@@ -78,6 +80,7 @@ class Font:
                 out.write("  font_copyright = '{}'\n".format(self.copyright))
                 out.write("  font_family = '{}'\n".format(self.family))
                 out.write("  font_name = '{}'\n".format(self.name))
+                out.write("  font_version = '{}'\n".format(self.version))
                 out.write("\n")
 
                 for icon_set_cls in utils.as_iterable(self.collections):
