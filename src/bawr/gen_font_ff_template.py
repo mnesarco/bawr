@@ -1,4 +1,5 @@
 # Copyright 2021 Frank David Martinez M.
+# Copyright 2024 Lutz Schönemann
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in 
@@ -65,6 +66,7 @@ font.copyright = config.font_copyright
 font.familyname = config.font_family
 font.fontname = config.font_name
 font.fullname = config.font_name
+font.version = config.font_version.strip() or font.version
 
 for code, name, path, options in select:
     glyph = font.createChar(code, name)
