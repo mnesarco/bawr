@@ -26,7 +26,7 @@ class FontForgeTool:
         self.env = env
 
     def __call__(self, script_path):
-        process = subprocess.Popen([self.env.FONTFORGE_PATH, '-lang=py', '-script', script_path], shell=True)
+        process = subprocess.Popen('{} -lang=py -script {}'.format(self.env.FONTFORGE_PATH, script_path), shell=True)
         try:
             err = process.wait(30)
             if (err):

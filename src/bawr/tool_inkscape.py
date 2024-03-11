@@ -29,7 +29,11 @@ class InkscapeTool:
         if margin > 0:
             size -= 2*margin
         
-        process = subprocess.Popen([self.env.INKSCAPE_PATH, "--export-background-opacity=0", f"--export-width={size}", "--export-type=png", f"--export-filename={png_file}", svg_file], shell=True)
+        process = subprocess.Popen(f'''{self.env.INKSCAPE_PATH} \
+            --export-background-opacity=0 \
+            --export-width={size} \
+            --export-type=png \
+            --export-filename="{png_file}" "{svg_file}"''', shell=True)
         try:
             err = process.wait(30)
             if (err):

@@ -38,7 +38,7 @@ python3 -m pip install --upgrade build
 python3 -m pip install wheel
 
 python3 -m build 
-python3 -m pip install dist/bawr-0.0.5-py3-none-any.whl
+python3 -m pip install dist/bawr-0.0.6-py3-none-any.whl
 
 ```
 
