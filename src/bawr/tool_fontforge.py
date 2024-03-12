@@ -19,6 +19,7 @@
 
 import subprocess
 import sys
+import shlex
 
 class FontForgeTool:
 
@@ -26,7 +27,9 @@ class FontForgeTool:
         self.env = env
 
     def __call__(self, script_path):
-        process = subprocess.Popen('{} -lang=py -script "{}"'.format(self.env.FONTFORGE_PATH, script_path), shell=True)
+        cmd_exec = [str(self.env.FONTFORGE_PATH), '-lang=py', '-script', str(script_path)]
+        print(f"[EXEC] {shlex.join(cmd_exec)}")
+        process = subprocess.Popen(cmd_exec, shell=False)
         try:
             err = process.wait(30)
             if (err):
