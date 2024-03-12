@@ -19,6 +19,7 @@
 
 import subprocess
 import sys
+import shlex
 
 class InkscapeTool:
 
@@ -28,12 +29,17 @@ class InkscapeTool:
     def __call__(self, svg_file, png_file, size, margin=0):
         if margin > 0:
             size -= 2*margin
-        
-        process = subprocess.Popen(f'''{self.env.INKSCAPE_PATH} \
-            --export-background-opacity=0 \
-            --export-width={size} \
-            --export-type=png \
-            --export-filename="{png_file}" "{svg_file}"''', shell=True)
+
+        cmd_exec =  [
+            str(self.env.INKSCAPE_PATH),
+            '--export-background-opacity=0',
+            f'--export-width={size}',
+            '--export-type=png',
+            '-o', str(png_file), 
+            str(svg_file)
+        ]
+        print(f"[EXEC] {shlex.join(cmd_exec)}")
+        process = subprocess.Popen(cmd_exec, shell=False)
         try:
             err = process.wait(30)
             if (err):
