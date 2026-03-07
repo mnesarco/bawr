@@ -1,20 +1,20 @@
 # Copyright 2021 Frank David Martinez Muñoz
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
-# this software and associated documentation files (the "Software"), to deal in 
-# the Software without restriction, including without limitation the rights to use, 
+# this software and associated documentation files (the "Software"), to deal in
+# the Software without restriction, including without limitation the rights to use,
 # copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-# Software, and to permit persons to whom the Software is furnished to do so, 
+# Software, and to permit persons to whom the Software is furnished to do so,
 # subject to the following conditions:
 #
-# The above copyright notice and this permission notice shall be included in 
+# The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-# PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
-# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
-# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+# PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ class Env( Environment ):
     # FONTFORGE_PATH = ...
 
     # [Optional] INKSCAPE_PATH = Path to inkscape executable, deduced if it is in PATH
-    # INKSCAPE_PATH = ...   
+    # INKSCAPE_PATH = ...
 
     # [Optional] BAWR_OUTPUT_DIR = Where all the output will be generated. Default = ./build
     # BAWR_OUTPUT_DIR = ...
@@ -75,7 +75,7 @@ class BootstrapIcons( IconSet ):
                     "currentColor": "#ffffff",
                     'width="1em"': 'width="16"',
                     'height="1em"': 'height="16"',
-                }            
+                }
             )
         ],
         "atlas_margin": 0.0625
@@ -93,7 +93,7 @@ class MyIcons( IconSet ):
                 {
                     'fill:#000000': "fill:#ffffff",
                     'stroke:#000000': 'stroke:#ffffff',
-                }            
+                }
             )
         ]
     }
@@ -140,7 +140,7 @@ class MyFont( Font ):
 class MyCppFontH( CppFontHeader ):
 
     # [Mandatory] Reference to the font generator to use
-    source = MyFont    
+    source = MyFont
 
     # [Optional] Generate constexpr values (default = false)
     constexpr = True
@@ -188,7 +188,7 @@ class MyCppFontImGui( ImGuiFontLoader ):
     font = MyFont
 
     # [Mandatory] reference to the font header
-    header = MyCppFontH    
+    header = MyCppFontH
 
     # [Mandatory] reference to the embedded binary
     data = MyCppFontEmbed
@@ -232,3 +232,26 @@ class MyCppAtlasEmbed( CppEmbedded ):
 class MyAtlasHeader( CppAtlasHeader ):
     source = MyAtlas
 
+#------------------------------------------------------------------------------
+# [Optional]
+# Generate a python font util file.
+# (extend PythonFontUtil)
+#------------------------------------------------------------------------------
+
+class MyPythonFont(PythonFontUtil):
+    source = MyFont
+
+
+#------------------------------------------------------------------------------
+# [Optional]
+# You can generate a Dart font header file with glyph codes ready to use in Flutter.
+# (extend DartClass)
+#------------------------------------------------------------------------------
+
+class MyDartIcons( DartClass ):
+
+    # [Mandatory] Reference to the font generator to use
+    source = MyFont
+
+    # [Optional] name of the generated Dart file (default = source.name)
+    # name = ...
